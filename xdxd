@@ -1,0 +1,1354 @@
+local Env = getfenv();
+local P = {};
+local r23 = {};
+local r16 = setmetatable({}, {
+    __index = r23,
+    __metatable = nil
+});
+if not pcall(function(...)
+    n = {
+        utf8.graphemes("To complex for me to give out source")
+    };
+    c = n[2];
+    w = n[3];
+    n = utf8.graphemes("To complex for me to give out source");
+    w, U = n(c, w);
+    if w then
+        return w;
+    end; 
+end) then
+    error("To complex for me to give out source");
+end;
+local _Replicatedstorage = game:GetService("ReplicatedStorage");
+local v4 = 43;
+local r24 = v4.GetService(43, "Players");
+local v6 = 44;
+local r25 = v6.GetService(44, "RunService");
+local v8 = 45;
+local r26 = v8.GetService(45, "HttpService");
+local v10 = 46;
+local r27 = v10.GetService(46, "UserInputService");
+local v12 = 47;
+local r28 = v12.GetService(47, "TweenService");
+local v13 = require(_Replicatedstorage.SharedModules.WeightFormat);
+local r29 = {
+    Background = Color3.fromRGB(13, 13, 18),
+    Secondary = Color3.fromRGB(35, 35, 48),
+    Accent = Color3.fromRGB(124, 58, 237),
+    AccentHover = Color3.fromRGB(147, 85, 255),
+    Text = Color3.fromRGB(255, 255, 255),
+    SubText = Color3.fromRGB(170, 170, 170),
+    Stroke = Color3.fromRGB(90, 90, 120)
+};
+local r30 = {};
+local r31 = v13.FormatGrams;
+h.FormatGrams = function(arg1, ...)
+    n = game;
+    F = game:GetService("Players").LocalPlayer.PlayerGui;
+    w = F:FindFirstChild("PlantHoverTooltip");
+    if w then
+        n = w:FindFirstChild("Frame");
+        if n then
+            W = n:FindFirstChild("Name");
+            if W then
+            end;
+            if W then
+                return r31((tonumber(b) or 0) * r30[W.Text]);
+            end;
+        end;
+    end;
+    return r31(tonumber(arg1) or 0); 
+end;
+local r32 = r24.LocalPlayer;
+local v16 = 52;
+local r33 = v16.GetAttribute(52, "PlotId");
+local function r34(arg1, ...)
+    c = arg1:GetAttribute("SeedName");
+    if c then
+        return c;
+    end; 
+end;
+local function r35(arg1, ...)
+    c = arg1:FindFirstChild("Fruits");
+    if c then
+        _Replicatedstorage = {
+            c:GetDescendants()
+        };
+        for W, v8 in pairs(o(c.GetDescendants[1])) do
+            if v8:IsA("BasePart") then
+                v8.Size = v8.Size * 5;
+            end; 
+        end;
+        return;
+    end; 
+end;
+local function r36(arg1, ...)
+    return tonumber(arg1:match("%[(.-)kg%]")); 
+end;
+local function r37(arg1, ...)
+    b = arg1;
+    if arg1:GetAttribute("Fruit") == nil then
+        return;
+    end;
+    c = arg1:GetAttribute("SeedName");
+    if c then
+        if c then
+        end;
+        J = arg1:GetAttribute("Fruit") == nil;
+        n = r36(arg1.Name);
+        if not n then
+            return;
+        end;
+        arg1:SetAttribute("Weight", n * (c or 1));
+        b.Name = arg1.Name:gsub("%[.-%]", "[" .. string.format("%.2f", n * (c or 1)) .. "kg]");
+        return;
+    else
+        F = arg1.Name:match("^(.-)%s*%[");
+    end; 
+end;
+local r38 = {};
+local function r40(arg1, ...)
+    r39 = arg1;
+    if r38[arg1] then
+        return;
+    end;
+    J = arg1;
+    c = arg1:GetAttribute("Owner");
+    if not c or c ~= r32.UserId then
+        return;
+    end;
+    task.spawn(function(...)
+        local C = {
+            C[2],
+            C[3],
+            16,
+            C[1],
+            C[5]
+        };
+        _Replicatedstorage = 6399871339428;
+        J = os.clock() < os.clock() + 5;
+        while J do
+            _Replicatedstorage = _Replicatedstorage[1];
+            for W, v8 in _Replicatedstorage[1][1][1], pairs(r39:GetDescendants()) do
+                if v8:IsA("BasePart") then
+                end; 
+            end;
+            task.wait(.1); 
+        end;
+        if r38[r39] then
+            return;
+        end;
+        v4 = r39:FindFirstChildWhichIsA("Model");
+        if not v4 then
+            return;
+        end;
+        c = v4:GetAttribute("SeedName");
+        if not c then
+            return;
+        end;
+        if (r30[c] or 1) == 1 then
+            return;
+        end;
+        W = r38;
+        W[r39] = true;
+        v10 = r39;
+        for v8, v10 in pairs(r39:GetDescendants()) do
+            if r39:IsA("BasePart") then
+                v10.Size = r39.Size * (r30[c] or 1);
+            end; 
+        end; 
+    end); 
+end;
+local _Sharedmodules = _Replicatedstorage:WaitForChild("SharedModules");
+local r41 = require(_Sharedmodules:WaitForChild("PetModules"));
+local _Shareddata = _Replicatedstorage:WaitForChild("SharedData");
+local r42 = require(_Shareddata:WaitForChild("PetData"));
+local _Shareddata2 = _Replicatedstorage:WaitForChild("SharedData");
+local r43 = require(_Shareddata2:WaitForChild("PetSizes"));
+local _Shareddata3 = _Replicatedstorage:WaitForChild("SharedData");
+local r44 = require(_Shareddata3:WaitForChild("PetTypes"));
+local _Sharedmodules2 = _Replicatedstorage:WaitForChild("SharedModules");
+local r45 = require(_Sharedmodules2:WaitForChild("Networking"));
+local _Clientmodules = _Replicatedstorage:WaitForChild("ClientModules");
+local r46 = require(_Clientmodules:WaitForChild("PlayerStateClient"));
+local r47 = _Replicatedstorage:WaitForChild("Assets");
+local r48 = Instance.new("Folder");
+local v23 = r48;
+v23.Name = "HiddenPets";
+local v24 = r48;
+v24.Parent = r24.LocalPlayer;
+local r49 = {};
+local r50 = {};
+local r51 = {};
+local r52 = {};
+local r55 = RaycastParams.new();
+local v25 = r55;
+v25.FilterType = Enum.RaycastFilterType.Exclude;
+local v26 = r55;
+v26.IgnoreWater = false;
+local v27 = r55;
+v27.RespectCanCollide = false;
+local r56 = RaycastParams.new();
+local v28 = r56;
+v28.FilterType = Enum.RaycastFilterType.Exclude;
+local v29 = r56;
+v29.IgnoreWater = false;
+local v30 = r56;
+v30.RespectCanCollide = false;
+(function(...)
+    b = {};
+    for v4, _Replicatedstorage in ipairs(r24[1]:GetPlayers()) do
+        if _Replicatedstorage.Character then
+            table.insert({}, _Replicatedstorage.Character);
+        end; 
+    end;
+    c = workspace:FindFirstChild("PlayerPetReferences");
+    if c then
+        table.insert(b, c);
+    end;
+    J = r55;
+    J.FilterDescendantsInstances = b; 
+end)();
+local function r70(arg1, ...)
+    r67 = arg1;
+    r68 = r45.Pets.PetUnequipped.OnClientEvent;
+    r69 = getrawmetatable(r45.Pets.PetUnequipped.OnClientEvent);
+    pcall(function(...)
+        local C = {
+            141,
+            C[2],
+            C[3],
+            140,
+            139
+        };
+        r69.Fire(r68, r67); 
+    end); 
+end;
+local function r71(...)
+    v4 = {
+        pcall(function(...)
+            local C = {
+                C[1],
+                C[2],
+                C[3]
+            };
+            return r32.PlayerGui.PetList.Frame.Header.TextLabel; 
+        end)
+    };
+    if not pcall(function(...)
+        local C = {
+            C[1],
+            C[2],
+            C[3]
+        };
+        return r32.PlayerGui.PetList.Frame.Header.TextLabel; 
+    end) or not v4[2] then
+        return 0, 3;
+    end;
+    W = {
+        v4[2].Text:match("(%d+)/(%d+)")
+    };
+    return tonumber(v4[2].Text:match("(%d+)/(%d+)")) or 0, tonumber(W[2]) or 3; 
+end;
+local function r75(arg1, ...)
+    r72 = arg1;
+    r73 = r45.Notification.OnClientEvent;
+    r74 = getrawmetatable(r45.Notification.OnClientEvent);
+    pcall(function(...)
+        local C = {
+            130,
+            C[2],
+            C[3],
+            129,
+            128
+        };
+        r74.Fire(r73, r72); 
+    end); 
+end;
+local r77 = {};
+local function r78(arg1, ...)
+    J = r46;
+    c = r46:GetLocalReplica();
+    if not c then
+        return;
+    end;
+    if not c.Data.Inventory.Seeds then
+        J = c.Data.Inventory;
+        J.Seeds = {};
+    end;
+    if type(c.Data.Inventory.Seeds[arg1]) == "number" then
+        J = c.Data.Inventory.Seeds;
+        J[arg1] = c.Data.Inventory.Seeds[arg1] + 1;
+    else
+        J = c.Data.Inventory.Seeds;
+        J[arg1] = 1;
+    end;
+    J = r49;
+    J[arg1] = true;
+    while c.changed_listeners.head do
+        pcall(n.listener, c, {
+            "Inventory",
+            "Seeds",
+            arg1
+        });
+        pcall(n.listener, c, "Inventory"); 
+    end;
+    return arg1; 
+end;
+local function r79(arg1, arg2, ...)
+    v4 = r46:GetLocalReplica();
+    if not v4 then
+        return;
+    end;
+    _Replicatedstorage = math.max;
+    if v4.Data.Inventory.Seeds and type(v4.Data.Inventory.Seeds[arg1]) == "number" then
+        if v4.Data.Inventory.Seeds[arg1] - math.max(1, tonumber(arg2) or 1) <= 0 then
+            W = math.max:GetLocalReplica().Data.Inventory.Seeds;
+            W[arg1] = nil;
+            W = r49;
+            W[arg1] = nil;
+            if r77[arg1] then
+            end;
+            if r77[arg1] then
+                r77[arg1]:Destroy();
+            end;
+            _Replicatedstorage = r77;
+            _Replicatedstorage[arg1] = nil;
+        else
+            W = math.max:GetLocalReplica().Data.Inventory.Seeds;
+            W[arg1] = v6[v8][arg1] - c;
+            if r77[arg1] then
+            end;
+            if r77[arg1] then
+                r77[arg1]:SetAttribute("Count", v6[v8][arg1] - c);
+            end;
+        end;
+    else
+        n = r49;
+        n[arg1] = nil;
+        if r77[arg1] then
+        end;
+        if r77[arg1] then
+            r77[arg1]:Destroy();
+        end;
+        W = r77;
+        W[arg1] = nil;
+        while v4.changed_listeners.head do
+            pcall(r77[arg1].listener, v4, {
+                "Inventory",
+                "Seeds",
+                arg1
+            });
+            pcall(r77[arg1].listener, v4, "Inventory"); 
+        end;
+        return;
+    end; 
+end;
+local function r80(arg1, ...)
+    J = r46;
+    c = r46:GetLocalReplica();
+    if not c then
+        return;
+    end;
+    if c.Data.Inventory.Pets and c.Data.Inventory.Pets[arg1] then
+        J = c.Data.Inventory.Pets;
+        J[arg1] = nil;
+    else
+        if c.Data.Inventory.Seeds and c.Data.Inventory.Seeds[arg1] then
+            J = r46:GetLocalReplica().Data.Inventory.Seeds;
+            J[arg1] = nil;
+        end;
+        J = r49;
+        J[arg1] = nil;
+        while c.changed_listeners.head do
+            pcall(c.changed_listeners.head.listener, c, {
+                "Inventory",
+                "Pets",
+                arg1
+            });
+            pcall(c.changed_listeners.head.listener, c, {
+                "Inventory",
+                "Seeds",
+                arg1
+            });
+            pcall(c.changed_listeners.head.listener, c, "Inventory"); 
+        end;
+        F = r50;
+        F[arg1] = nil;
+        if r50[arg1] then
+            for v6, v10 in v10[1], pairs(r51) do
+                if v10[3]:GetAttribute("PetId") == r50[arg1] then
+                    v10.heartConn:Disconnect();
+                    v10.renderConn:Disconnect();
+                    if v10.model and v10.model.Parent then
+                        v10.model:Destroy();
+                    end;
+                    if v10.fakePart and v10.fakePart.Parent then
+                        v10.fakePart:Destroy();
+                    end;
+                    F = r51;
+                    F[v8] = nil;
+                    v8.Parent = r32.Backpack;
+                    v12 = r70(r50[arg1]);
+                    for W = #r52, 1, -1 do
+                        if r52[W]:GetAttribute("PetId") == r50[arg1] then
+                            r52[W]:Destroy();
+                            table.remove(r52, W);
+                        end; 
+                    end;
+                    break;
+                end; 
+            end;
+        end;
+        return;
+    end; 
+end;
+local r92 = require(r24.LocalPlayer.PlayerScripts.Controllers.MailboxController.MailboxItemCatalog).IsGiftable;
+ZR.IsGiftable = function(arg1, arg2, arg3, ...)
+    if arg1 == "Pets" or arg1 == "W\x12\x07\x00" then
+        return true;
+    end;
+    return r92(arg1, arg2, arg3); 
+end;
+task.spawn(function(...)
+    b = r32.PlayerGui;
+    J = r32.PlayerGui:WaitForChild("TopNotification");
+    J = J:WaitForChild("Frame").ChildAdded;
+    J:Connect(function(arg1, ...)
+        local C = {
+            C[2],
+            C[3],
+            1
+        };
+        b = 29;
+        r95 = arg1;
+        task.spawn(function(...)
+            local C = {
+                29,
+                C[2],
+                C[3],
+                1
+            };
+            J = r95;
+            b = r95:WaitForChild("Content", 5);
+            if b then
+                F = b:WaitForChild("TextLabel", 5);
+            end;
+            r96 = b;
+            if not b then
+                return;
+            end;
+            local function r97(...)
+                local C = {
+                    41,
+                    C[2],
+                    C[3],
+                    1,
+                    29
+                };
+                J = r96.Text;
+                b = r96.Text:lower();
+                if b:find("gift sent") then
+                    if r96.Text ~= "Gift sent!" then
+                        J = r96;
+                        J.Text = "Gift sent!";
+                    end;
+                    return true;
+                end;
+                for v4, _Replicatedstorage in ipairs("ipairs") do
+                    if b:find(_Replicatedstorage) then
+                        r95:Destroy();
+                        return true;
+                    end; 
+                end;
+                return false; 
+            end;
+            F = r97;
+            if not r97() then
+                F = b:GetPropertyChangedSignal("Text");
+                r98 = F:Connect(function(...)
+                    local C = {
+                        29,
+                        C[2],
+                        C[3],
+                        10,
+                        37
+                    };
+                    if r95.Parent == nil then
+                        if r95.Parent == nil then
+                            r98:Disconnect();
+                        end;
+                        return;
+                    else
+                        r97();
+                    end; 
+                end);
+            end; 
+        end); 
+    end); 
+end);
+task.spawn(function(...)
+    F = game:GetService("SoundService");
+    b = F:WaitForChild("SFX");
+    r99 = b:WaitForChild("Notification"); 
+end);
+local r101 = r45.Mailbox.SendBatch;
+local r102 = getrawmetatable(r45.Mailbox.SendBatch).Fire;
+vR.Fire = function(arg1, arg2, arg3, arg4, ...)
+    if arg1 ~= r101 then
+        return r102(arg1, arg2, arg3, arg4);
+    end;
+    if arg3 then
+        for N, Z in ipairs("ipairs") do
+            if r49[Z.ItemKey] then
+                if Z.Category == "Seeds" then
+                    r79(Z.ItemKey, Z.Count);
+                else
+                    r80(Z.ItemKey);
+                end;
+            else
+                table.insert({}, Z);
+            end; 
+        end;
+        return r102(arg1, arg2, arg3, arg4);
+    end; 
+end;
+local r103 = r45.Pets.RequestUnequip.Fire;
+iR.Fire = function(arg1, arg2, ...)
+    for n, O in pairs(U[1]) do
+        N = n:GetAttribute("PetId");
+        J = N == arg2;
+        if N == arg2 then
+            O.heartConn:Disconnect();
+            O.renderConn:Disconnect();
+            if O.model and O.model.Parent then
+                O.model:Destroy();
+            end;
+            if O.fakePart and O.fakePart.Parent then
+                O.fakePart:Destroy();
+            end;
+            J = r51;
+            J[n] = nil;
+            U.Parent = r32.Backpack;
+            r70(arg2);
+            N = r46:GetLocalReplica();
+            if N then
+                for Z, s in pairs(r50) do
+                    if s == arg2 then
+                        if N.Data.Inventory.Pets[Z] then
+                            while N.changed_listeners.head do
+                                pcall(N.changed_listeners.head.listener, N, {
+                                    "Inventory",
+                                    "Pets",
+                                    Z
+                                });
+                                pcall(N.changed_listeners.head.listener, N, "Inventory"); 
+                            end;
+                        end;
+                    end; 
+                end;
+                break;
+            end;
+            h = {
+                r71()
+            };
+            r75(r71() .. "/" .. h[2] .. " Pets Equipped!");
+            return;
+        end; 
+    end;
+    return r103(arg1, arg2); 
+end;
+jR.Name = "PetGeneratorGui";
+jR.ResetOnSpawn = false;
+jR.ZIndexBehavior = Enum.ZIndexBehavior.Sibling;
+local r104 = Instance.new("Frame");
+local v32 = r104;
+v32.Name = "MainFrame";
+local v33 = r104;
+v33.Size = UDim2.new(0, 360, 0, 380);
+local v34 = r104;
+v34.Position = UDim2.new(0.5, -180, .4, -190);
+local v35 = r104;
+v35.BackgroundColor3 = Color3.fromRGB(20, 20, 20);
+local v36 = r104;
+v36.BorderSizePixel = 0;
+local v37 = r104;
+v37.Active = true;
+local v38 = r104;
+v38.Draggable = true;
+local v39 = r104;
+v39.Parent = jR;
+Instance.new("UICorner");
+kR.CornerRadius = UDim.new(0, 12);
+kR.Parent = r104;
+Instance.new("TextLabel");
+BR.Size = UDim2.new(1, -40, 0, 22);
+BR.Position = UDim2.new(0, 16, 0, 12);
+BR.BackgroundTransparency = 1;
+BR.Text = "YT: VexoOnTopp";
+BR.TextColor3 = Color3.fromRGB(130, 130, 130);
+BR.TextSize = 11;
+BR.Font = Enum.Font.SourceSansBold;
+BR.TextXAlignment = Enum.TextXAlignment.Left;
+BR.Parent = r104;
+Instance.new("TextLabel");
+AR.Size = UDim2.new(1, -40, 0, 28);
+AR.Position = UDim2.new(0, 16, 0, 28);
+AR.BackgroundTransparency = 1;
+AR.Text = "GAG 2 - SYNTACHT SPAWNER";
+AR.TextColor3 = Color3.fromRGB(255, 255, 255);
+AR.TextSize = 18;
+AR.Font = Enum.Font.SourceSansBold;
+AR.TextXAlignment = Enum.TextXAlignment.Left;
+AR.Parent = r104;
+local _TextButton = Instance.new("TextButton");
+_TextButton.Size = UDim2.new(0, 24, 0, 24);
+_TextButton.Position = UDim2.new(1, -36, 0, 20);
+_TextButton.BackgroundColor3 = Color3.fromRGB(40, 40, 40);
+_TextButton.Text = "\xe2\x9c\x95";
+_TextButton.TextColor3 = Color3.fromRGB(230, 230, 230);
+_TextButton.TextSize = 14;
+_TextButton.Font = Enum.Font.SourceSansBold;
+_TextButton.Parent = r104;
+Instance.new("UICorner");
+mR.CornerRadius = UDim.new(0, 6);
+mR.Parent = _TextButton;
+_TextButton.MouseButton1Click:Connect(function(...)
+    J = r104;
+    J.Visible = false; 
+end);
+local _Frame = Instance.new("Frame");
+_Frame.Size = UDim2.new(1, -32, 0, 38);
+_Frame.Position = UDim2.new(0, 16, 0, 66);
+_Frame.BackgroundColor3 = Color3.fromRGB(15, 15, 15);
+_Frame.BorderSizePixel = 0;
+_Frame.Parent = r104;
+Instance.new("UICorner");
+IR.CornerRadius = UDim.new(0, 8);
+IR.Parent = _Frame;
+local r105 = Instance.new("TextButton");
+local v43 = r105;
+v43.Size = UDim2.new(0, 72, 1, -8);
+local v44 = r105;
+v44.Position = UDim2.new(0, 4, 0, 4);
+local v45 = r105;
+v45.BackgroundColor3 = Color3.fromRGB(240, 240, 240);
+local v46 = r105;
+v46.Text = "Pets";
+local v47 = r105;
+v47.TextColor3 = Color3.fromRGB(10, 10, 10);
+local v48 = r105;
+v48.TextSize = 14;
+local v49 = r105;
+v49.Font = Enum.Font.SourceSansBold;
+local v50 = r105;
+v50.Parent = _Frame;
+Instance.new("UICorner");
+aR.CornerRadius = UDim.new(0, 6);
+aR.Parent = r105;
+local r106 = Instance.new("TextButton");
+local v51 = r106;
+v51.Size = UDim2.new(0, 72, 1, -8);
+local v52 = r106;
+v52.Position = UDim2.new(0, 80, 0, 4);
+local v53 = r106;
+v53.BackgroundColor3 = Color3.fromRGB(35, 35, 35);
+local v54 = r106;
+v54.Text = "Seeds";
+local v55 = r106;
+v55.TextColor3 = Color3.fromRGB(200, 200, 200);
+local v56 = r106;
+v56.TextSize = 14;
+local v57 = r106;
+v57.Font = Enum.Font.SourceSansBold;
+local v58 = r106;
+v58.Parent = _Frame;
+Instance.new("UICorner");
+zg.CornerRadius = UDim.new(0, 6);
+zg.Parent = r106;
+local r107 = Instance.new("TextButton");
+local v59 = r107;
+v59.Size = UDim2.new(0, 72, 1, -8);
+local v60 = r107;
+v60.Position = UDim2.new(0, 156, 0, 4);
+local v61 = r107;
+v61.BackgroundColor3 = Color3.fromRGB(35, 35, 35);
+local v62 = r107;
+v62.Text = "Kg";
+local v63 = r107;
+v63.TextColor3 = Color3.fromRGB(200, 200, 200);
+local v64 = r107;
+v64.TextSize = 14;
+local v65 = r107;
+v65.Font = Enum.Font.SourceSansBold;
+local v66 = r107;
+v66.Parent = _Frame;
+Instance.new("UICorner");
+Jg.CornerRadius = UDim.new(0, 6);
+Jg.Parent = r107;
+local r108 = Instance.new("Frame");
+local v67 = r108;
+v67.Name = "PetViewFrame";
+local v68 = r108;
+v68.Size = UDim2.new(1, 0, 1, -110);
+local v69 = r108;
+v69.Position = UDim2.new(0, 0, 0, 110);
+local v70 = r108;
+v70.BackgroundTransparency = 1;
+local v71 = r108;
+v71.Visible = true;
+local v72 = r108;
+v72.Parent = r104;
+local r109 = Instance.new("Frame");
+local v73 = r109;
+v73.Name = "SeedViewFrame";
+local v74 = r109;
+v74.Size = UDim2.new(1, 0, 1, -110);
+local v75 = r109;
+v75.Position = UDim2.new(0, 0, 0, 110);
+local v76 = r109;
+v76.BackgroundTransparency = 1;
+local v77 = r109;
+v77.Visible = false;
+local v78 = r109;
+v78.Parent = r104;
+local r110 = Instance.new("Frame");
+local v79 = r110;
+v79.Name = "KgViewFrame";
+local v80 = r110;
+v80.Size = UDim2.new(1, 0, 1, -110);
+local v81 = r110;
+v81.Position = UDim2.new(0, 0, 0, 110);
+local v82 = r110;
+v82.BackgroundTransparency = 1;
+local v83 = r110;
+v83.Visible = false;
+local v84 = r110;
+v84.Parent = r104;
+local function r111(arg1, arg2, ...)
+    c = arg2;
+    b = arg1;
+    for n, v6 in ipairs(r105[1]) do
+        v6.BackgroundColor3 = Color3.fromRGB(35, 35, 35);
+        v6.TextColor3 = Color3.fromRGB(200, 200, 200); 
+    end;
+    v6 = r108;
+    for W, v6 in ipairs({
+        r108,
+        r109,
+        r110
+    }) do
+        v6.Visible = false; 
+    end;
+    b.BackgroundColor3 = Color3.fromRGB(240, 240, 240);
+    b.TextColor3 = Color3.fromRGB(10, 10, 10);
+    c.Visible = true; 
+end;
+r105.MouseButton1Click:Connect(function(...)
+    r111(r105, r108); 
+end);
+r106.MouseButton1Click:Connect(function(...)
+    r111(r106, r109); 
+end);
+r107.MouseButton1Click:Connect(function(...)
+    r111(r107, r110); 
+end);
+local r112 = Instance.new("TextBox");
+local v88 = r112;
+v88.Size = UDim2.new(1, -32, 0, 44);
+local v89 = r112;
+v89.Position = UDim2.new(0, 16, 0, 6);
+local v90 = r112;
+v90.BackgroundColor3 = Color3.new(30, 30, 32);
+local v91 = r112;
+v91.BorderSizePixel = 0;
+local v92 = r112;
+v92.Text = "Raccoon";
+local v93 = r112;
+v93.TextColor3 = Color3.new(255, 255, 255);
+local v94 = r112;
+v94.TextSize = 15;
+local v95 = r112;
+v95.Font = Enum[r16[r15(21129298110063, 26932194308349)]].SourceSans;
+local v96 = r112;
+v96.TextXAlignment = Enum[r16[r15(7770783518242, 7298668203334)]].Left;
+local v97 = r112;
+v97.ClearTextOnFocus = false;
+local v98 = r112;
+v98.Parent = r108;
+Instance.new("UIPadding");
+Fg.PaddingLeft = UDim.new(0, 12);
+Fg.Parent = r112;
+Instance.new("UICorner");
+Pg.CornerRadius = UDim.new(0, 8);
+Pg.Parent = r112;
+local r115 = Instance.new("Frame");
+local v99 = r115;
+v99.Frame = "DropdownLayer";
+local v100 = r115;
+v100.Frame = Env[1][1](1, 0, 1, 0);
+local v101 = r115;
+v101.Frame = 1;
+local v102 = r115;
+v102.Frame = 0;
+local v103 = r115;
+v103.Frame = 100;
+local v104 = r115;
+v104[r16[1]] = r104;
+local function v105(arg1, arg2, arg3, arg4, ...)
+    r117 = arg2;
+    r118 = arg4;
+    r119 = Instance.new("TextButton");
+    J = r119;
+    J.Size = UDim2.new(1, -32, 0, 44);
+    J = r119;
+    J.Position = arg1;
+    J = r119;
+    J.BackgroundColor3 = Color3.fromRGB(30, 30, 32);
+    J = r119;
+    J.Text = arg2 .. ": Normal";
+    J = r119;
+    J.TextColor3 = Color3.fromRGB(230, 230, 230);
+    J = r119;
+    J.TextSize = 14;
+    J = r119;
+    J.Font = Enum.Font.SourceSans;
+    J = r119;
+    J.TextXAlignment = Enum.TextXAlignment.Left;
+    J = r119;
+    J.Parent = r108;
+    _Replicatedstorage = Instance.new("UIPadding");
+    _Replicatedstorage.PaddingLeft = UDim.new(0, 12);
+    _Replicatedstorage.Parent = r119;
+    v6 = Instance.new("UICorner");
+    v6.CornerRadius = UDim.new(0, 8);
+    v6.Parent = r119;
+    v8 = Instance.new("TextLabel");
+    v8.Size = UDim2.new(0, 20, 1, 0);
+    v8.Position = UDim2.new(1, -32, 0, 0);
+    v8.BackgroundTransparency = 1;
+    v8.Text = "\xe2\x96\xbc";
+    v8.TextColor3 = Color3.fromRGB(150, 150, 150);
+    v8.TextSize = 12;
+    v8.Font = Enum.Font.SourceSans;
+    v8.Parent = r119;
+    r120 = Instance.new("Frame");
+    J = r120;
+    J.Size = UDim2.new(1, 0, 0, #arg3 * 32);
+    J = r120;
+    J.Position = UDim2.new(arg1.X.Scale, arg1.X.Offset, arg1.Y.Scale + .32, arg1.Y.Offset + 6);
+    J = r120;
+    J.BackgroundColor3 = Color3.fromRGB(25, 25, 27);
+    J = r120;
+    J.BorderSizePixel = 0;
+    J = r120;
+    J.ZIndex = 105;
+    J = r120;
+    J.Visible = false;
+    J = r120;
+    J.Parent = r115;
+    v12 = Instance.new("UICorner");
+    v12.CornerRadius = UDim.new(0, 6);
+    v12.Parent = r120;
+    J = ipairs;
+    for v13, G in ("\xbbv\xdfb\x94\xb5")[1], ipairs(arg3) do
+        r121 = G;
+        v = Instance.new("TextButton");
+        v.Size = UDim2.new(1, 0, 0, 32);
+        v.Position = UDim2.new(0, 0, 0, (("\xbbv\xdfb\x94\xb5")[3] - 1) * 32);
+        v.BackgroundTransparency = 1;
+        v.Text = G;
+        v.TextColor3 = Color3.fromRGB(220, 220, 220);
+        v.TextSize = 14;
+        v.Font = Enum.Font.SourceSans;
+        v.ZIndex = 110;
+        v.Parent = r120;
+        J = v.MouseButton1Click;
+        v.MouseButton1Click:Connect(function(...)
+            local C = {
+                19,
+                C[1],
+                C[2],
+                18,
+                25,
+                20,
+                C[5],
+                17
+            };
+            J = r119;
+            J.Text = r117 .. ": " .. r121;
+            J = r120;
+            J.Visible = false;
+            if r116 == r120 then
+            end;
+            r118(r121); 
+        end); 
+    end;
+    J = r119.MouseButton1Click;
+    r119.MouseButton1Click:Connect(function(...)
+        local C = {
+            C[5],
+            20,
+            C[1],
+            C[2]
+        };
+        if r116 and r116 ~= r120 then
+            J = r116;
+            J.Visible = false;
+        end;
+        J = r120;
+        J.Visible = not r120.Visible;
+        if r120.Visible then
+        else
+            if r116 == r120 then
+            end;
+            return;
+        end; 
+    end); 
+end;
+Wg[1] = UDim2.new(0, 16, 0, 62);
+Wg[2] = {
+    (17130990346025)[27378660602317],
+    ("@\x7f\xef\xda")[20783488738766],
+    (27378660602317)[4482405419047]
+};
+Wg[3] = function(arg1, ...)
+ 
+end;
+v105(Wg[1], Wg[2][("@\x7f\xef\xda")[20783488738766]], Wg[2], Wg[3]);
+Wg[1] = UDim2.new(0, 16, 0, 114);
+Wg[2] = {
+    (17171715022652)[4425999616013],
+    ("Ss\xe4\x1d \x80E")[11612091487519]
+};
+Wg[3] = function(arg1, ...)
+ 
+end;
+v105(Wg[1], Wg[2][("Ss\xe4\x1d \x80E")[11612091487519]], Wg[2], Wg[3]);
+Wg[1] = Wg[2][934506250675];
+local v106 = Env[Wg[1]][Wg[1]](Wg[1]);
+Wg[2] = UDim2.new(1, -32, 0, 48);
+v106[UDim2[("6t\x1a\x05")[12548867610323]][1]] = Wg[2];
+Wg[2] = UDim2.new(0, 16, 0, 164);
+v106[UDim2[("*\xe5\x1cf\xfb\xfb\xd5\xb6")[24076284767179]][0]] = Wg[2];
+Wg[2] = Color3.new(230, 230, 235);
+v106[Color3[("izJ\x9f\xc5x\xcfL=:\x96\x8b|\xf6\x86\x80")[9071653605504]][230]] = Wg[2];
+Wg[1] = Wg[2][11491483997415];
+v106[Wg[1][230]] = Wg[1];
+Wg[2] = Color3.new(15, 15, 15);
+v106[Color3[(",\x96\x07$\xa5\x86\xe2R\xe99")[28531994751974]][15]] = Wg[2];
+v106[(15)[15]] = 15;
+v106[Enum[(4705754581135)[17193857687366]][(4705754581135)[17193857687366][32709722520447]][(4705754581135)[17193857687366][32709722520447]]] = Enum[(4705754581135)[17193857687366]][(4705754581135)[17193857687366][32709722520447]];
+Wg[1] = r108;
+v106[Wg[1][22691489966406]] = Wg[1];
+Wg[1] = Instance[(22691489966406)[25471773961813]]((22691489966406)[25471773961813]);
+Wg[3] = UDim.new(0, 10);
+Wg[1][UDim[("\xf1\xc2\x8c\x85\xd3\x04\x00\xb1\xa9\x9d\x17j")[13317037889593]][0]] = Wg[3];
+Wg[2] = v106;
+Wg[1][Wg[2][9054107701368]] = Wg[2];
+Wg[2] = Instance[(9054107701368)[30448028235618]]((9054107701368)[30448028235618]);
+local r122 = Wg[2];
+Wg[5] = UDim2.new(1, -32, 0, 44);
+Wg[2][(9054107701368)[30448028235618]] = Wg[5];
+Wg[5] = UDim2.new(0, 16, 0, 6);
+Wg[2][(9054107701368)[30448028235618]] = Wg[5];
+Wg[5] = Color3.new(30, 30, 32);
+Wg[2][(9054107701368)[30448028235618]] = Wg[5];
+Wg[2][(9054107701368)[30448028235618]] = 0;
+Wg[4] = Wg[5][5106567448905];
+Wg[2][(9054107701368)[30448028235618]] = Wg[4];
+Wg[5] = Color3.new(255, 255, 255);
+Wg[2][(9054107701368)[30448028235618]] = Wg[5];
+Wg[2][(9054107701368)[30448028235618]] = 15;
+Wg[2][(9054107701368)[30448028235618]] = Enum[(34324151418479)[28553470112752]][(34324151418479)[28553470112752][32513745271588]];
+Wg[2][(9054107701368)[30448028235618]] = Enum[(13306270537780)[4860582004951]][(13306270537780)[4860582004951][10290269786807]];
+Wg[2][(9054107701368)[30448028235618]] = false;
+Wg[4] = r109;
+Wg[2][(9054107701368)[30448028235618]] = Wg[4];
+Wg[3] = Instance[Enum[(13306270537780)[4860582004951]][14996024367943]](Enum[(13306270537780)[4860582004951]][23847750888288]);
+Wg[5] = UDim.new(0, 12);
+Wg[3][Instance[Enum[(13306270537780)[4860582004951]][14996024367943]]] = Wg[5];
+Wg[4] = r122;
+Wg[3][Instance[Enum[(13306270537780)[4860582004951]][14996024367943]]] = Wg[4];
+Wg[4] = Instance[(33918906252722)[11160938730573]]((33918906252722)[8592539127713]);
+Wg[6] = UDim.new(0, 8);
+Wg[4][Instance[(33918906252722)[11160938730573]]] = Wg[6];
+Wg[5] = r122;
+Wg[4][Instance[(33918906252722)[11160938730573]]] = Wg[5];
+Wg[5] = Instance[(6303395072887)[7315228183886]]((6303395072887)[21463442646794]);
+Wg[7] = UDim2.new(1, -32, 0, 48);
+Wg[5][Instance[(6303395072887)[7315228183886]]] = Wg[7];
+Wg[7] = UDim2.new(0, 16, 0, 62);
+Wg[5][Instance[(6303395072887)[7315228183886]]] = Wg[7];
+Wg[7] = Color3.new(145, 225, 145);
+Wg[5][Instance[(6303395072887)[7315228183886]]] = Wg[7];
+Wg[6] = Wg[7][16339918396856];
+Wg[5][Instance[(6303395072887)[7315228183886]]] = Wg[6];
+Wg[7] = Color3.new(15, 15, 15);
+Wg[5][Instance[(6303395072887)[7315228183886]]] = Wg[7];
+Wg[5][Instance[(6303395072887)[7315228183886]]] = 15;
+Wg[5][Instance[(6303395072887)[7315228183886]]] = Enum[(27687863906909)[32926234180580]][(27687863906909)[32926234180580][1927011124097]];
+Wg[6] = r109;
+Wg[5][Instance[(6303395072887)[7315228183886]]] = Wg[6];
+Wg[6] = Instance[(5809762339473)[2602444096699]]((5809762339473)[12217280927289]);
+Wg[8] = UDim.new(0, 10);
+Wg[6][Instance[(5809762339473)[2602444096699]]] = Wg[8];
+Wg[7] = Wg[5];
+Wg[6][UDim[("#\xa6\x87\xd2zz_x\x94\xa8\xe8\x03")[25950630539060]][27213305295232]] = Wg[7];
+Wg[2] = function(...)
+    if not (workspace.Gardens and workspace.Gardens["Plot" .. r33]) then
+        c = Instance.new("TextLabel");
+        c.Size = UDim2.new(1, -32, 0, 40);
+        c.Position = UDim2.new(0, 16, 0, 10);
+        c.BackgroundTransparency = 1;
+        c.Text = "No plants found.";
+        c.TextColor3 = Color3.fromRGB(150, 150, 150);
+        c.TextSize = 14;
+        c.Font = Enum.Font.SourceSans;
+        c.Parent = r110;
+        return;
+    end;
+    c = Instance.new("ScrollingFrame");
+    c.Size = UDim2.new(1, -10, 1, -10);
+    c.Position = UDim2.new(0, 5, 0, 5);
+    c.BackgroundTransparency = 1;
+    c.BorderSizePixel = 0;
+    c.ScrollBarThickness = 4;
+    c.ScrollBarImageColor3 = r29.Accent;
+    c.Parent = r110;
+    w = Instance.new("UIListLayout");
+    w.Padding = UDim.new(0, 8);
+    w.Parent = c;
+    Instance.new("UIPadding");
+    n.PaddingTop = UDim.new(0, 8);
+    n.PaddingBottom = UDim.new(0, 8);
+    n.PaddingLeft = UDim.new(0, 8);
+    n.PaddingRight = UDim.new(0, 8);
+    n.Parent = c;
+    W = {};
+    r123 = {};
+    for r, h in (workspace.Gardens and workspace.Gardens["Plot" .. r33]).Plants[1], pairs((workspace.Gardens and workspace.Gardens["Plot" .. r33]).Plants[1]:GetChildren()) do
+        r124 = r34(h);
+        if r124 then
+            G = r124;
+            if not W[r124] then
+                W[r124] = true;
+                J = r123;
+                J[r124] = {};
+                r125 = Instance.new("TextButton");
+                G = r125;
+                G.Size = UDim2.new(1, -10, 0, 35);
+                G = r125;
+                G.BackgroundColor3 = r29.Secondary;
+                G = r125;
+                G.Text = r124;
+                G = r125;
+                G.Font = Enum.Font.GothamBold;
+                G = r125;
+                G.TextSize = 16;
+                G = r125;
+                G.TextColor3 = Color3.new(1, 1, 1);
+                G = r125;
+                G.BorderSizePixel = 0;
+                G = r125;
+                G.Parent = c;
+                Instance.new("UICorner");
+                v.CornerRadius = UDim.new(0, 10);
+                v.Parent = r125;
+                Instance.new("UIStroke");
+                Instance.new("UIGradient");
+                k.Color = ColorSequence.new({
+                    ColorSequenceKeypoint.new(0, Color3.fromRGB(85, 85, 110)),
+                    ColorSequenceKeypoint.new(1, Color3.fromRGB(55, 55, 75))
+                });
+                k.Rotation = 90;
+                k.Parent = r125;
+                r125.MouseEnter:Connect(function(...)
+                    local C = {
+                        C[7],
+                        118,
+                        C[1],
+                        C[2],
+                        C[5]
+                    };
+                    F = r28:Create(r125, TweenInfo.new(.15), {
+                        BackgroundColor3 = r29.Accent
+                    });
+                    F:Play(); 
+                end);
+                r125.MouseLeave:Connect(function(...)
+                    local C = {
+                        C[7],
+                        118,
+                        C[1],
+                        C[2],
+                        C[5]
+                    };
+                    F = r28:Create(r125, TweenInfo.new(.15), {
+                        BackgroundColor3 = r29.Secondary
+                    });
+                    F:Play(); 
+                end);
+                r125.MouseButton1Down:Connect(function(...)
+                    local C = {
+                        C[7],
+                        118,
+                        C[1],
+                        C[2]
+                    };
+                    F = r28:Create(r125, TweenInfo.new(.08), {
+                        Size = UDim2.new(1, -14, 0, 32)
+                    });
+                    F:Play(); 
+                end);
+                r125.MouseButton1Up:Connect(function(...)
+                    local C = {
+                        C[7],
+                        118,
+                        C[1],
+                        C[2]
+                    };
+                    F = r28:Create(r125, TweenInfo.new(.08), {
+                        Size = UDim2.new(1, -10, 0, 35)
+                    });
+                    F:Play(); 
+                end);
+                r125.MouseButton1Click:Connect(function(...)
+                    local C = {
+                        21,
+                        30,
+                        C[8],
+                        C[9],
+                        C[10],
+                        C[1],
+                        C[2],
+                        C[11],
+                        C[12]
+                    };
+                    for c, W in pairs(F) do
+                        r35(W); 
+                    end;
+                    J = r30;
+                    J[r124] = (r30[r124] or 1) * 5;
+                    for n, W in pairs(r32.Backpack:GetChildren()) do
+                        if r32.Backpack:IsA("Tool") then
+                            r37(r32.Backpack);
+                        end; 
+                    end;
+                    r75(r124 .. " fruits scaled \xc3\x975!"); 
+                end);
+            end;
+            table.insert(r123[r124], h);
+        end; 
+    end;
+    c.CanvasSize = UDim2.new(0, 0, 0, 0); 
+end;
+Wg[7] = Wg[2]();
+Wg[7] = (function(...)
+    b = workspace:FindFirstChild("PottedPlantVisuals");
+    if not b then
+        return;
+    end;
+    n = {
+        b:GetChildren()
+    };
+    for v4, _Replicatedstorage in pairs(o(F)) do
+        r40(_Replicatedstorage); 
+    end;
+    b.ChildAdded:Connect(r40); 
+end)();
+Wg[9] = r24.LocalPlayer;
+Wg[8] = Wg[9][(27213305295232)[29564316415430]];
+Wg[7] = Wg[8][(27213305295232)[29564316415430][13254747068444]];
+Wg[8] = Wg[7].Connect;
+Wg[9] = function(arg1, ...)
+    if arg1:IsA("Tool") then
+        r37(arg1);
+    end; 
+end;
+Wg[8] = Wg[8](Wg[7], Wg[9]);
+Wg[12] = r24.LocalPlayer;
+Wg[11] = Wg[12][(13254747068444)[20666576496023]];
+Wg[13] = Wg[11].GetChildren;
+Wg[12] = {
+    Wg[13](Wg[11])
+};
+Wg[11] = {
+    pairs(o(Wg[12]))
+};
+Wg[10] = Wg[11][3];
+Wg[9] = Wg[11][2];
+Wg[8] = Wg[11][1];
+Wg[10], Wg[11] = Wg[8](Wg[9], Wg[10]);
+while Wg[10] do
+    Wg[12] = (nil):IsA((13254747068444)[2901609973063]);
+    if Wg[12] then
+        Wg[12] = r37;
+        Wg[13] = Wg[12](nil);
+    end; 
+end;
+Wg[8] = function(...)
+    if r116 then
+        J = r116;
+        J.Visible = false;
+    end;
+    if r112.Text == "" then
+        return;
+    end;
+    for W, O in pairs(r41) do
+        if W:lower() == r112.Text:lower() then
+        end; 
+    end;
+    for U, O in pairs(r41) do
+        N = U:lower();
+        if N:find(r112.Text:lower(), 1, true) then
+        end; 
+    end;
+    r75("Pet profile not found inside game data."); 
+end;
+P[2] = Wg[8];
+Wg[11] = Wg[12][5304560650662];
+Wg[10] = _Replicatedstorage.WaitForChild;
+Wg[10] = Wg[10](_Replicatedstorage, Wg[11]);
+Wg[12] = Wg[13][15718478093463];
+Wg[13] = Wg[10].WaitForChild;
+Wg[11] = {
+    Wg[13](Wg[10], Wg[12])
+};
+Wg[9] = require(o(Wg[11]));
+P[3] = Wg[9];
+Wg[9] = _Replicatedstorage.WaitForChild;
+Wg[10] = Wg[11][17781440634968];
+Wg[9] = Wg[9](_Replicatedstorage, Wg[10]);
+Wg[10] = Wg[9].WaitForChild;
+Wg[11] = Wg[12][4525029214267];
+Wg[10] = Wg[10](Wg[9], Wg[11]);
+Wg[9] = Wg[10].WaitForChild;
+Wg[11] = Wg[12][7818121252408];
+Wg[9] = Wg[9](Wg[10], Wg[11]);
+P[4] = Wg[9];
+Wg[9] = r47;
+Wg[11] = Wg[9].WaitForChild;
+Wg[11] = Wg[11](Wg[9], (17781440634968)[23215433673274]);
+P[5] = Wg[11];
+Wg[12] = function(arg1, ...)
+    c = P[4]:FindFirstChild(arg1);
+    if c then
+        F = c:IsA("StringValue");
+    end;
+    if c then
+        return c.Value;
+    end;
+    return ""; 
+end;
+P[6] = Wg[12];
+Wg[13] = function(arg1, ...)
+    for w, U in (nil)[1], ipairs((nil)[1]) do
+        if U.SeedName == arg1 then
+            return U.YHeight or 0;
+        end; 
+    end;
+    return 0; 
+end;
+P[7] = Wg[13];
+Wg[14] = function(...)
+    if r122.Text == "" then
+        return;
+    end;
+    if not r78(r122.Text) then
+        return;
+    end;
+    w = r32:FindFirstChild("Backpack");
+    if not w then
+        r75(r122.Text .. " added to Backpack!");
+        return;
+    end;
+    W = w:FindFirstChild(r122.Text .. " Seed") or r32.Character;
+    if W then
+        F = W:IsA("Tool");
+    end;
+    if W then
+        W:SetAttribute("Count", (W:GetAttribute("Count") or 1) + 1);
+        F = r77;
+        F[r122.Text] = W;
+        r75(r122.Text .. " added to Backpack!");
+        return;
+    end;
+    U = P[5]:FindFirstChild(r122.Text);
+    O = Instance.new("Tool");
+    O.Name = r122.Text .. " Seed";
+    O:SetAttribute("SeedTool", r122.Text);
+    O:SetAttribute("Count", 1);
+    O:SetAttribute("MainCategory", "Seed");
+    O:SetAttribute("ToolDescendants", 0);
+    O.TextureId = P[6](r122.Text);
+    N = P[7](r122.Text);
+    if N > 0 then
+        O.Grip = CFrame.new(0, -N * .1, 0);
+    end;
+    if U then
+        r = U:Clone();
+        r.Name = "Handle";
+        r.Parent = O;
+    else
+        r = Instance.new("Part");
+        r.Name = "Handle";
+        r.Size = Vector3.new(0.5, 0.5, 0.5);
+        r.Transparency = 1;
+        r.CanCollide = false;
+        r.Parent = O;
+    end;
+    F = r77;
+    F[r122.Text] = O;
+    O.Parent = w;
+    r75(r122.Text .. " added to Backpack!"); 
+end;
+P[8] = Wg[14];
+Wg[14] = v106[("\x05\xd0\x01\x1cm")[28009589043954]];
+Wg[16] = P[2];
+Wg[15] = Wg[14].Connect;
+Wg[15] = Wg[15](Wg[14], Wg[16]);
+Wg[15] = Wg[16][14242768132584];
+Wg[14] = Wg[5][Wg[15]];
+Wg[15] = Wg[14].Connect;
+Wg[16] = P[8];
+Wg[15] = Wg[15](Wg[14], Wg[16]);
+Wg[15] = r27;
+Wg[14] = Wg[15][(23215433673274)[8699487719379]];
+Wg[15] = Wg[14].Connect;
+Wg[16] = function(arg1, arg2, ...)
+    if arg1.KeyCode == Enum.KeyCode.RightShift then
+        if r116 then
+            J = r116;
+            J.Visible = false;
+        end;
+        F = r104;
+        F.Visible = not r104.Visible;
+    else
+        if arg1.KeyCode == Enum.KeyCode.M then
+            if arg2 then
+                F = r27:GetFocusedTextBox();
+            end;
+            if arg2 then
+                return;
+            end;
+            P[2]();
+        else
+            if arg1.KeyCode == Enum.KeyCode.N then
+                if arg2 then
+                    F = r27:GetFocusedTextBox();
+                end;
+                if arg2 then
+                    return;
+                end;
+                P[8]();
+            end;
+            return;
+        end;
+    end; 
+end;
+Wg[15] = Wg[15](Wg[14], Wg[16]);
+Wg[15] = r24.LocalPlayer;
+Wg[16] = Wg[15].WaitForChild;
+Wg[16] = Wg[16](Wg[15], ("\xe2\x1a\x1c6T\"")[8497174843252]);
+jR[Wg[14]] = Wg[16];
